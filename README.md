@@ -111,3 +111,213 @@ The following models were trained and deployed:
   - Ensure regular and accurate feed management to improve growth rates.
   - Monitor and control shrimp health to reduce mortalities and enhance survival rates.
   - Utilize high-quality seed and maintain appropriate stocking densities.
+ 
+## Setup Instructions
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/finashbrn/Shrimp-Farming-Prediction.git
+   cd Shrimp-Farming-Prediction
+   ```
+2. **Create and Activate a Virtual Environment:**
+  ```bash
+   python -m venv env
+   env\Scripts\activate
+```
+3. **Create and Activate a Virtual Environment:**
+ ```bash
+  pip install -r requirements.txt
+```
+## Running the Code
+ **Feature Engineering:**
+```bash
+   python src/feature_engineering.py
+   ```
+ **Model Training:**
+```bash
+   python src/train_model.py
+   ```
+ **Making Predictions:**
+```bash
+  python src/predict.py
+   ```
+
+## API Setup and Usage
+
+### Prerequisites
+
+- Python 3.6 or higher
+- Flask
+- pandas
+- numpy
+- scikit-learn
+- xgboost
+
+### Setup
+
+1. Clone the repository and navigate to the project directory:
+
+    ```bash
+    git clone https://github.com/finashbrn/Shrimp-Farming-Prediction.git
+    cd Shrimp-Farming-Prediction
+    ```
+
+2. Create and activate a virtual environment:
+
+    ```bash
+    python -m venv env
+    env\Scripts\activate
+    ```
+
+3. Install the required dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Navigate to the `api` directory and run the Flask application:
+
+    ```bash
+    cd api
+    flask run
+    ```
+
+### API Endpoints
+
+- **Predict Survival Rate**: `POST /predict/sr`
+- **Predict Average Body Weight**: `POST /predict/abw`
+- **Predict Biomass**: `POST /predict/biomass`
+- **Predict Revenue**: `POST /predict/revenue`
+
+### Example Requests
+
+#### Predict Survival Rate
+
+```bash
+curl -X POST http://127.0.0.1:5000/predict/sr -H "Content-Type: application/json" -d '{
+    "duration_days": 100,
+    "season_started": 2,
+    "season_finished": 3,
+    "morning_temp_mean": 26.5,
+    "morning_temp_std": 2.1,
+    "evening_temp_mean": 27.3,
+    "evening_temp_std": 1.8,
+    "morning_do_mean": 5.6,
+    "morning_do_std": 0.7,
+    "evening_do_mean": 5.8,
+    "evening_do_std": 0.6,
+    "morning_salinity_mean": 30.1,
+    "morning_salinity_std": 1.0,
+    "evening_salinity_mean": 30.4,
+    "evening_salinity_std": 0.9,
+    "morning_pH_mean": 7.8,
+    "morning_pH_std": 0.2,
+    "evening_pH_mean": 7.7,
+    "evening_pH_std": 0.3,
+    "feed_sum": 1200.0,
+    "feed_mean": 30.0,
+    "feed_std": 5.0,
+    "fasting_days": 5,
+    "fasting_mean": 0.1,
+    "pond_size": 1500,
+    "province_encoded": 3,
+    "regency_encoded": 10,
+    "ADG": 0.3
+}'
+#### Predict Average Body Weight
+curl -X POST http://127.0.0.1:5000/predict/abw -H "Content-Type: application/json" -d '{
+    "duration_days": 100,
+    "season_started": 2,
+    "season_finished": 3,
+    "morning_temp_mean": 26.5,
+    "morning_temp_std": 2.1,
+    "evening_temp_mean": 27.3,
+    "evening_temp_std": 1.8,
+    "morning_do_mean": 5.6,
+    "morning_do_std": 0.7,
+    "evening_do_mean": 5.8,
+    "evening_do_std": 0.6,
+    "morning_salinity_mean": 30.1,
+    "morning_salinity_std": 1.0,
+    "evening_salinity_mean": 30.4,
+    "evening_salinity_std": 0.9,
+    "morning_pH_mean": 7.8,
+    "morning_pH_std": 0.2,
+    "evening_pH_mean": 7.7,
+    "evening_pH_std": 0.3,
+    "feed_sum": 1200.0,
+    "feed_mean": 30.0,
+    "feed_std": 5.0,
+    "fasting_days": 5,
+    "fasting_mean": 0.1,
+    "pond_size": 1500,
+    "province_encoded": 3,
+    "regency_encoded": 10,
+    "ADG": 0.3
+}'
+
+#### Predict Biomass
+curl -X POST http://127.0.0.1:5000/predict/biomass -H "Content-Type: application/json" -d '{
+    "duration_days": 100,
+    "season_started": 2,
+    "season_finished": 3,
+    "morning_temp_mean": 26.5,
+    "morning_temp_std": 2.1,
+    "evening_temp_mean": 27.3,
+    "evening_temp_std": 1.8,
+    "morning_do_mean": 5.6,
+    "morning_do_std": 0.7,
+    "evening_do_mean": 5.8,
+    "evening_do_std": 0.6,
+    "morning_salinity_mean": 30.1,
+    "morning_salinity_std": 1.0,
+    "evening_salinity_mean": 30.4,
+    "evening_salinity_std": 0.9,
+    "morning_pH_mean": 7.8,
+    "morning_pH_std": 0.2,
+    "evening_pH_mean": 7.7,
+    "evening_pH_std": 0.3,
+    "feed_sum": 1200.0,
+    "feed_mean": 30.0,
+    "feed_std": 5.0,
+    "fasting_days": 5,
+    "fasting_mean": 0.1,
+    "pond_size": 1500,
+    "province_encoded": 3,
+    "regency_encoded": 10,
+    "ADG": 0.3
+}'
+
+#### Predict Revenue
+curl -X POST http://127.0.0.1:5000/predict/revenue -H "Content-Type: application/json" -d '{
+    "duration_days": 100,
+    "season_started": 2,
+    "season_finished": 3,
+    "morning_temp_mean": 26.5,
+    "morning_temp_std": 2.1,
+    "evening_temp_mean": 27.3,
+    "evening_temp_std": 1.8,
+    "morning_do_mean": 5.6,
+    "morning_do_std": 0.7,
+    "evening_do_mean": 5.8,
+    "evening_do_std": 0.6,
+    "morning_salinity_mean": 30.1,
+    "morning_salinity_std": 1.0,
+    "evening_salinity_mean": 30.4,
+    "evening_salinity_std": 0.9,
+    "morning_pH_mean": 7.8,
+    "morning_pH_std": 0.2,
+    "pH_std": 0.2,
+    "evening_pH_mean": 7.7,
+    "evening_pH_std": 0.3,
+    "feed_sum": 1200.0,
+    "feed_mean": 30.0,
+    "feed_std": 5.0,
+    "fasting_days": 5,
+    "fasting_mean": 0.1,
+    "pond_size": 1500,
+    "province_encoded": 3,
+    "regency_encoded": 10,
+    "ADG": 0.3
+}'
+
