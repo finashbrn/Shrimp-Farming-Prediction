@@ -18,29 +18,31 @@ This project aims to predict various metrics of shrimp farming, including Surviv
 
 This project provides a comprehensive analysis and predictive modeling approach to optimize shrimp farming practices. By leveraging the provided datasets, we aim to deliver actionable insights and recommendations for achieving optimal results in shrimp farming.
 
-## Directory Structure
 
+## Project Structure
+
+```plaintext
 Shrimp-Farming-Prediction/
 ├── data/
-│ ├── cycles.csv
-│ ├── feeds.csv
-│ ├── samplings.csv
-│ ├── measurements.csv
-│ ├── features_df.csv
-│ ├── predictions.csv
+│   ├── cycles.csv
+│   ├── feeds.csv
+│   ├── samplings.csv
+│   ├── measurements.csv
+│   ├── features_df.csv
+│   ├── predictions.csv
 ├── models/
-│ ├── rf_sr_model.pkl
-│ ├── rf_abw_model.pkl
-│ ├── xgb_biomass_model.pkl
-│ ├── xgb_revenue_model.pkl
+│   ├── rf_sr_model.pkl
+│   ├── rf_abw_model.pkl
+│   ├── xgb_biomass_model.pkl
+│   ├── xgb_revenue_model.pkl
 ├── notebooks/
-│ ├── JALA_Assessment.ipynb
+│   ├── JALA_Assessment.ipynb
 ├── src/
-│ ├── feature_engineering.py
-│ ├── train_model.py
-│ ├── predict.py
+│   ├── feature_engineering.py
+│   ├── train_model.py
+│   ├── predict.py
 ├── api/
-│ ├── app.py
+│   ├── app.py
 ├── README.md
 ├── requirements.txt
 
